@@ -10,25 +10,25 @@ Zum anderen hat APC einen Daten Cache in welchem eine PHP Applikation selbst Dat
 
 Falls dem APCu nicht genügend memory zugewiesen ist können Fehler wie dieser Auftreten:
 
-PHP Warning: apc\_store(): Unable to allocate memory for pool.
+```PHP Warning: apc_store(): Unable to allocate memory for pool.```
 
 Um den Fehler zu beheben kann man APCu mehr memory zuweisen.
 
 Um den Wert Korrekt einstellen zu können, muss man erst einmal wissen wie viel memory APCu mommentan hat. Am einfachsten ist es dafür die apc.shm\_sie einstellungen in der Kommandozeile zu überprüfen.
 
-$ php -i | grep aapc.shm\_size
+```$ php -i | grep aapc.shm_size```
 
-Apc.shm\_size =\> 8M =\> 8M
+```Apc.shm_size => 8M => 8M```
 
-Um den wert auf zum Beispiel 16M zu erhöhen müssen Änderungen in der php.ini Datei vorgenommen werden.
+Um den wert auf zum Beispiel 16M zu erhöhen müssen Änderungen in der ```php.ini``` Datei vorgenommen werden.
 
-Apc.shm\_size = 16M
+```Apc.shm_size = 16M```
 
 Anschliessend muss php-fpm neu gestartet werden.
 
-$ sudo service php7.0-fpm restart
+```$ sudo service php7.0-fpm restart```
 
-[ok] Restartin PHP 7.0 FastCGI Process Manager: php-fpm7.0
+```[ok] Restarting PHP 7.0 FastCGI Process Manager: php-fpm7.0```
 
 ## APCu monitoring
 
@@ -52,15 +52,15 @@ Die cache fragmentation ist um einiges komplizierter. Man sollte sich einfach fo
 
 - General Cache Information (APCu version, uptime)
 - Cache Information (cached variables, hit rate)
-- Runtime settings (APCu settings, eg. Apc.shm\_size)
+- Runtime settings (APCu settings, eg. ```apc.shm_size```)
 
 ### User Cache Entries
 
 Um auf die User Cache Entries zugreifen zu können, muss im apc.php script der default password string editiert werden .
 
-defaults('ADMIN\_USERNAME','apc'); //Admin Username
+```defaults('ADMIN_USERNAME','apc'); //Admin Username```
 
-defaults('ADMIN\_PASSWORD','password'); //Admin Password – CHANGE THIS TO ENABLE!!!
+```defaults('ADMIN_PASSWORD','password'); //Admin Password – CHANGE THIS TO ENABLE!!!```
 
 Den Aufwand die Einstellungen vorzunehmen lohnt sich da man zugriff auf granulare daten in jeder einzelnen cache entry erhält.
 
