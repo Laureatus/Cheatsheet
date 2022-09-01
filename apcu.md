@@ -70,6 +70,3 @@ It is worth the effort to change the settings because you get access to granular
 - Path to the file (double click on an entry)
 
 You also have the option to clear all cache entries for the APCu cache.
-
-
-Translated with www.DeepL.com/Translator (free version)
