@@ -1,30 +1,30 @@
 # APCu
 
-APCu ist der Nachfolger des "Alternativ PHP Cache" kurz APC. APC war eine PHP Erweiterung welche zwei Aufgaben abdeckte. Zum einen als PHP Beschleuniger der Bytecode im Arbeitsspeicher ablegte. Durch diesen Bytecode-Cache muss der PHP-Interpreter nicht bei jedem Aufruf den gesamten Bytecode interpretieren. Stattdessen kann der bereits berechnete Code ausgeführt werden. Diese Funktionalität wurde durch OPcache ersetzt.
+APCu is the successor of the "Alternative PHP Cache" short APC. APC was a PHP extension which covered two tasks. Firstly as a PHP accelerator that stored bytecode in memory. Through this bytecode cache, the PHP interpreter does not have to interpret the entire bytecode with every call. Instead, the already computed code can be executed. This functionality has been replaced by OPcache.
 
-Zum anderen hat APC einen Daten Cache in welchem eine PHP Applikation selbst Daten ablegen konnte. Diese Funktion übernimmt nun «APC User Cache» kurz APCu. Dank APCu lassen sich zum Beispiel Datenbankabfragen in den Zwischenspeicher legen und damit Zeit sparen.
+On the other hand, APC has a data cache in which a PHP application itself could store data. This function is now taken over by "APC User Cache" in short APCu. Thanks to APCu, database queries, for example, can be placed in the cache and thus save time.
 
 
 
-## Erhöhen der apc.shm\_size value
+## Increase the apc.shm\_size value
 
-Falls dem APCu nicht genügend memory zugewiesen ist können Fehler wie dieser Auftreten:
+If APCu is not allocated enough memory, errors like this may occur:
 
-```PHP Warning: apc_store(): Unable to allocate memory for pool.```
+``PHP Warning: apc_store(): Unable to allocate memory for pool.```.
 
-Um den Fehler zu beheben kann man APCu mehr memory zuweisen.
+To fix this error you can allocate more memory to APCu.
 
-Um den Wert Korrekt einstellen zu können, muss man erst einmal wissen wie viel memory APCu mommentan hat. Am einfachsten ist es dafür die apc.shm\_sie einstellungen in der Kommandozeile zu überprüfen.
+To set the value correctly you have to know how much memory APCu has at the moment. The easiest way is to check the apc.shm\_sie settings in the command line.
 
-```$ php -i | grep aapc.shm_size```
+```$ php -i | grep aapc.shm_size``
 
 ```Apc.shm_size => 8M => 8M```
 
-Um den wert auf zum Beispiel 16M zu erhöhen müssen Änderungen in der ```php.ini``` Datei vorgenommen werden.
+To increase the value to, for example, 16M, changes must be made in the ``php.ini`` file.
 
 ```Apc.shm_size = 16M```
 
-Anschliessend muss php-fpm neu gestartet werden.
+Afterwards php-fpm must be restarted.
 
 ```$ sudo service php7.0-fpm restart```
 
@@ -32,41 +32,44 @@ Anschliessend muss php-fpm neu gestartet werden.
 
 ## APCu monitoring
 
-Um APCu zu überwachen kann das apc.php script verwendet werden.
+To monitor APCu the apc.php script can be used.
 
-Das Script gibt wichtige Informationen wie zum Beispiel:
+The script gives important information like:
 
 ### APCu memory usage
 
-Das Script berechnet freien und belegten speicherplatz und gibt eine Klare Übersicht von cache hits und misses. Wie in jedem caching system gilt hier, desto mehr hits desto besser.
+The script calculates free and used memory and gives a clear overview of cache hits and misses. As in any caching system, the more hits the better.
 
 ![image](https://user-images.githubusercontent.com/47870802/187645357-8caf875b-ba36-4d71-9265-2b6518232c47.png)
 
 ### APCu cache fragmentation
 
-Die cache fragmentation ist um einiges komplizierter. Man sollte sich einfach folgendes merken: Desto weniger fragmentation desto besser.
+The cache fragmentation is a bit more complicated. You should simply remember the following: The less fragmentation the better.
 
 ![image](https://user-images.githubusercontent.com/47870802/187645421-782b129f-b23d-47bc-85df-7747d7077669.png)
 
 ### Host stats
 
 - General Cache Information (APCu version, uptime)
-- Cache Information (cached variables, hit rate)
-- Runtime settings (APCu settings, eg. ```apc.shm_size```)
+- Cache information (cached variables, hit rate)
+- Runtime settings (APCu settings, eg. ``apc.shm_size``)
 
 ### User Cache Entries
 
-Um auf die User Cache Entries zugreifen zu können, muss im apc.php script der default password string editiert werden .
+To access the user cache entries, the default password string must be edited in the apc.php script.
 
-```defaults('ADMIN_USERNAME','apc'); //Admin Username```
+```defaults('ADMIN_USERNAME','apc'); //Admin Username``
 
-```defaults('ADMIN_PASSWORD','password'); //Admin Password – CHANGE THIS TO ENABLE!!!```
+```defaults('ADMIN_PASSWORD','password'); //Admin Password - CHANGE THIS TO ENABLE!!!```
 
-Den Aufwand die Einstellungen vorzunehmen lohnt sich da man zugriff auf granulare daten in jeder einzelnen cache entry erhält.
+It is worth the effort to change the settings because you get access to granular data in each cache entry.
 
-- Anzahl der Hits
-- Grösse
-- Zuletzt modifiziert, erstellt am und timeout (falls gesetzt)
-- Pfad zur Datei (doppelklick auf einen Eintrag)
+- Number of hits
+- Size
+- Last modified, created on and timeout (if set)
+- Path to the file (double click on an entry)
 
-Man hat auch die option alle cache einträge für den APCu cache zu leeren.
+You also have the option to clear all cache entries for the APCu cache.
+
+
+Translated with www.DeepL.com/Translator (free version)
