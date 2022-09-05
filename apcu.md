@@ -10,7 +10,7 @@ On the other hand, APC has a data cache in which a PHP application itself could 
 
 If APCu is not allocated enough memory, errors like this may occur:
 
-``PHP Warning: apc_store(): Unable to allocate memory for pool.```
+```PHP Warning: apc_store(): Unable to allocate memory for pool.```
 
 To fix this error you can allocate more memory to APCu.
 
