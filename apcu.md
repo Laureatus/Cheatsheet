@@ -6,17 +6,17 @@ On the other hand, APC has a data cache in which a PHP application itself could 
 
 
 
-## Increase the apc.shm\_size value
+## Increase the apc.shm_size value
 
 If APCu is not allocated enough memory, errors like this may occur:
 
-``PHP Warning: apc_store(): Unable to allocate memory for pool.```.
+``PHP Warning: apc_store(): Unable to allocate memory for pool.```
 
 To fix this error you can allocate more memory to APCu.
 
 To set the value correctly you have to know how much memory APCu has at the moment. The easiest way is to check the apc.shm\_sie settings in the command line.
 
-```$ php -i | grep aapc.shm_size``
+```$ php -i | grep aapc.shm_size```
 
 ```Apc.shm_size => 8M => 8M```
 
