@@ -174,3 +174,85 @@ The syntax is:
 ```-L``` prints the length of the longest line
 
 ```-w``` counts the words in the file
+
+## grep
+With grep files can be searched with the help of Reg-Ex.
+
+The following syntax should be used:
+
+```grep [options] pattern [file]```
+
+There are also some predefined patterns which can be used:
+
+```[:digit:]``` all digits 0-9
+
+```[:upper:]``` all upper case letters
+
+```[:lower:]``` all lowercase letters
+
+```[:alpha:]``` all letters
+
+```[:alnum:]``` all digits or letters
+
+```[:punct:]``` all punctuation and special characters
+
+```[:graph:]``` all graphic characters
+
+```[:print:]``` printable characters
+
+```[:blank:]``` spaces or tabs
+
+```[:space:]``` characters that create white space
+
+```[:cntrl:]``` all control characters
+
+## find
+The Find command can be used to search for files and directories and output them to the screen.
+
+The following options are available:
+
+```Find / [search term]``` searches everywhere
+
+```Find /. [search term]``` searches all entries with the name of the search command in the current directory
+
+```Find -name test.txt``` searches for files with the name test.txt
+
+```Find -type d``` finds only directories
+
+```Find -size -100c -ls``` searches for files smaller than 100 bytes
+
+```Find / -user tom``` searches for all files of user tom
+
+```Find -empty``` finds files and directories with size 0
+
+## awk
+
+Awk is a script language for editing and analyzing text.
+
+The name is derived from the first letters of the developers. Aho, Weinberger and Kernighan.
+
+ 
+
+The syntax of awk is as follows:
+
+```Condition {statements}```
+
+ 
+
+A usual condition would be a regular expression like e.g. ```/[0-9]+\.[0-9]+/```
+
+A statement would then be e.g. ```'{print}'```.
+
+A full command would be ```awk '/[0-9]+\.[0-9]+/ {print}' [filename]```
+
+## pipes
+With a pipe operator ```|``` the output of a command is directly forwarded to another command and used as input. So e.g. output of find can be sorted directly with Sort. But also more than two commands can be linked together.
+
+## stdin,stdout,stderr
+All commands executed in the terminal are assigned to three different channels.
+
+The channel stdin has the number 0 and reads the input from the keyboard.
+
+The channel stdout has the number 1 and writes output to the screen.
+
+The channel stderr has the number 2 and writes output to the screen connected to the terminal.
