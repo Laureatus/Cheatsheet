@@ -1,7 +1,12 @@
 # Docker
 
-## Working with Containers
+### Table of contents
+[Test](https://github.com/Laureatus/Cheatsheet/blob/main/docker.md#Working-with-volumes)
 
+## Working with Containers
+<details>
+  <summary>Read More</summary>
+  
 ### Running a container
 
 ```docker container run alpine```
@@ -63,9 +68,13 @@ With the ```-p``` argument it is possible to publish the port(s) of a container 
 
 ```docker container run -p 80:80 nginx```
 
+ </details>
 
 ## Working with Images
 
+<details>
+  <summary>Read More</summary>
+  
 ### Listing Images
 
 ```docker image ls```
@@ -73,17 +82,45 @@ With the ```-p``` argument it is possible to publish the port(s) of a container 
 ### Deleting Images
 
 ```docker image rm alpine```
+  
+</details>
 
 ## Working with volumes
+  
+  <details>
+  <summary>Read More</summary>
 
 ### Bind mount a volume
 If you want to access files from the localhost in the docker container it ist neccesary to link the local directory with the container.
 To do so we can bind mount the directory to the container with the following command:
 
 ```docker container run -p 80:80 -v /Users/Laureatus/html:/usr/share/nginx/html nginx```
-
+    
+    
+</details>
+      
 ## Networking and Container communication
+<details>
+  <summary>Read More</summary>
+  
+  ### Linking containers
+To communicate between two containers they need to be in the same network or need to be linked. To link two or more containers together the following command can be used:
+  
+```
+// Run a container with the alpine image and the came c1
+docker container run --rm -it --name c1 alpine sh
+  
+// Run a second container named c2 and link container c1 to it.
+docker container run --rm -it --name c2 --link c1 alpine sh
+  
+// Now you can communicate between the two containers by hostname or IP
+// Test this by pinging c1 from the terminal of c2
 
+ping c1
+```
+  
+  
+</details>
 
 
 
