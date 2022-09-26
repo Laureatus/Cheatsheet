@@ -58,7 +58,7 @@ The cache fragmentation is a bit more complicated. You should simply remember th
 
 To access the user cache entries, the default password string must be edited in the apc.php script.
 
-```defaults('ADMIN_USERNAME','apc'); //Admin Username``
+```defaults('ADMIN_USERNAME','apc'); //Admin Username```
 
 ```defaults('ADMIN_PASSWORD','password'); //Admin Password - CHANGE THIS TO ENABLE!!!```
 
