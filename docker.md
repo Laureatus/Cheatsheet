@@ -27,9 +27,9 @@
   * [Deleting a network](#deleting-a-network)
   * [Linking containers](#linking-containers)
 
-## Working with Containers
+# Working with Containers
   
-### Running a container
+## Running a container
 
 ```docker container run alpine```
 
@@ -42,29 +42,29 @@ It is possible to set custom names for your containers. To do so use the ```--na
 ```docker container run --name my_container alpine```
 
 
-### Starting a shell
+## Starting a shell
 
 ```docker container run -it alpine sh```
 
-### Exit shell and leave container running
+## Exit shell and leave container running
 
 Use the key combination ```ctrl+P+Q```
 This key combination will exit the container shell withoout stopping the container.
 
-### Attach a container
+## Attach a container
 To get back into a running contaienr use the following command:
 
 ```docker container attach 43049c3c3cc6```
 
-### Stopping a container
+## Stopping a container
 
 ```docker container stop 43049c3c3cc6```
 
-### Starting the container
+## Starting the container
 
 ```docker container stop 43049c3c3cc6```
 
-### Listing containers
+## Listing containers
 Listing all running containers
 
 ```docker container ls```
@@ -72,7 +72,7 @@ Listing all containers
 
 ```docker container ls -a```
 
-### Removing a contaier
+## Removing a contaier
 
 To remove a single container use the following command.
 
@@ -84,61 +84,61 @@ To remove multiple containers at once use this command:
 
 This command would remove all containers that are found by grep matching the string alpine.
 
-### Publishing a service
+## Publishing a service
 
 With the ```-p``` argument it is possible to publish the port(s) of a container to the localhost
 
 ```docker container run -p 80:80 nginx```
 
-## Working with Images
+# Working with Images
   
-### Login to Docker
+## Login to Docker
 ```docker login```
   
-### Pulling images
+## Pulling images
 ```docker image pull hello-world```
   
-### Listing Images
+## Listing Images
 
 ```docker image ls```
 
-### Deleting Images
+## Deleting Images
 
 ```docker image rm alpine```
   
-### Building Images
+## Building Images
 ```docker image build -t myimage:latest /path/to/dockerfile```
 
-### Tagging images
+## Tagging images
 ```docker image tag myimage:latest laureatus/myimage:latest```
 
-### Pushing images 
+## Pushing images 
 ```docker image push laureatus/myimage:latest```
 
-## Working with volumes
+# Working with volumes
 
-### Bind mount a volume
+## Bind mount a volume
 If you want to access files from the localhost in the docker container it ist neccesary to link the local directory with the container.
 To do so we can bind mount the directory to the container with the following command:
 
 ```docker container run -p 80:80 -v /Users/Laureatus/html:/usr/share/nginx/html nginx```
 
       
-## Networking and Container communication
+# Networking and Container communication
 
 
-### Listing networks
+## Listing networks
 ```docker network ls```
 
-### Creating a user defined network
+## Creating a user defined network
 ```docker container create test```
   
-### Deleting a network
+## Deleting a network
 ```docker network rm test```
   
 
   
-### Linking containers
+## Linking containers
 To communicate between two containers they need to be in the same network or need to be linked. To link two or more containers together the following command can be used:
   
 ```
