@@ -1,11 +1,33 @@
 # Docker
 
 ### Table of contents
-[Test](https://github.com/Laureatus/Cheatsheet/blob/main/docker.md#Working-with-volumes)
+- [Working with Containers](#working-with-containers)
+  * [Running a container](#running-a-container)
+  * [Starting a shell](#starting-a-shell)
+  * [Exit shell and leave container running](#exit-shell-and-leave-container-running)
+  * [Attach a container](#attach-a-container)
+  * [Stopping a container](#stopping-a-container)
+  * [Starting the container](#starting-the-container)
+  * [Listing containers](#listing-containers)
+  * [Removing a contaier](#removing-a-contaier)
+  * [Publishing a service](#publishing-a-service)
+- [Working with Images](#working-with-images)
+  * [Login to Docker](#login-to-docker)
+  * [Pulling images](#pulling-images)
+  * [Listing Images](#listing-images)
+  * [Deleting Images](#deleting-images)
+  * [Building Images](#building-images)
+  * [Tagging images](#tagging-images)
+  * [Pushing images](#pushing-images)
+- [Working with volumes](#working-with-volumes)
+  * [Bind mount a volume](#bind-mount-a-volume)
+- [Networking and Container communication](#networking-and-container-communication)
+  * [Listing networks](#listing-networks)
+  * [Creating a user defined network](#creating-a-user-defined-network)
+  * [Deleting a network](#deleting-a-network)
+  * [Linking containers](#linking-containers)
 
 ## Working with Containers
-<details>
-  <summary>Read More</summary>
   
 ### Running a container
 
@@ -68,12 +90,7 @@ With the ```-p``` argument it is possible to publish the port(s) of a container 
 
 ```docker container run -p 80:80 nginx```
 
- </details>
-
 ## Working with Images
-
-<details>
-  <summary>Read More</summary>
   
 ### Login to Docker
 ```docker login```
@@ -97,26 +114,18 @@ With the ```-p``` argument it is possible to publish the port(s) of a container 
 
 ### Pushing images 
 ```docker image push laureatus/myimage:latest```
-  
-</details>
 
 ## Working with volumes
-  
-  <details>
-  <summary>Read More</summary>
 
 ### Bind mount a volume
 If you want to access files from the localhost in the docker container it ist neccesary to link the local directory with the container.
 To do so we can bind mount the directory to the container with the following command:
 
 ```docker container run -p 80:80 -v /Users/Laureatus/html:/usr/share/nginx/html nginx```
-    
-    
-</details>
+
       
 ## Networking and Container communication
-<details>
-<summary>Read More</summary>
+
 
 ### Listing networks
 ```docker network ls```
@@ -144,10 +153,6 @@ docker container run --rm -it --name c2 --link c1 alpine sh
 
 ping c1
 ```
-
-
-  
-</details>
 
 
 
