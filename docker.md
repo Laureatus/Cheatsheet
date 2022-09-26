@@ -75,6 +75,12 @@ With the ```-p``` argument it is possible to publish the port(s) of a container 
 <details>
   <summary>Read More</summary>
   
+### Login to Docker
+```docker login```
+  
+### Pulling images
+```docker image pull hello-world```
+  
 ### Listing Images
 
 ```docker image ls```
@@ -82,6 +88,15 @@ With the ```-p``` argument it is possible to publish the port(s) of a container 
 ### Deleting Images
 
 ```docker image rm alpine```
+  
+### Building Images
+```docker image build -t myimage:latest /path/to/dockerfile```
+
+### Tagging images
+```docker image tag myimage:latest laureatus/myimage:latest```
+
+### Pushing images 
+```docker image push laureatus/myimage:latest```
   
 </details>
 
@@ -101,9 +116,20 @@ To do so we can bind mount the directory to the container with the following com
       
 ## Networking and Container communication
 <details>
-  <summary>Read More</summary>
+<summary>Read More</summary>
+
+### Listing networks
+```docker network ls```
+
+### Creating a user defined network
+```docker container create test```
   
-  ### Linking containers
+### Deleting a network
+```docker network rm test```
+  
+
+  
+### Linking containers
 To communicate between two containers they need to be in the same network or need to be linked. To link two or more containers together the following command can be used:
   
 ```
@@ -118,7 +144,8 @@ docker container run --rm -it --name c2 --link c1 alpine sh
 
 ping c1
 ```
-  
+
+
   
 </details>
 
