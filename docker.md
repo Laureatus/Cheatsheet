@@ -57,6 +57,13 @@ To remove multiple containers at once use this command:
 
 This command would remove all containers that are found by grep matching the string alpine.
 
+### Publishing a service
+
+With the ```-p``` argument it is possible to publish the port(s) of a container to the localhost
+
+```docker container run -p 80:80 nginx```
+
+
 ## Working with Images
 
 ### Listing Images
@@ -66,6 +73,17 @@ This command would remove all containers that are found by grep matching the str
 ### Deleting Images
 
 ```docker image rm alpine```
+
+## Working with volumes
+
+### Bind mount a volume
+If you want to access files from the localhost in the docker container it ist neccesary to link the local directory with the container.
+To do so we can bind mount the directory to the container with the following command:
+
+```docker container run -p 80:80 -v /Users/Laureatus/html:/usr/share/nginx/html nginx```
+
+## Networking and Container communication
+
 
 
 
