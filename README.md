@@ -9,3 +9,4 @@ This repository is a collection of cheatsheets, tools and code snippets i collec
 - [German Cheatsheets](https://github.com/Laureatus/Cheatsheet/tree/main/german-cheatsheets)
 - [Filesystem Hierarchy Standart](Filesystem-Hierarchy-Standart.md)
 - [Shell Commands](Shell-commands.md)
+- [Cypress](Cypress.md)
