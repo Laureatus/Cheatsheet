@@ -225,7 +225,8 @@ The following options are available:
 
 ```Find -empty``` finds files and directories with size 0
 
-## awk
+
+## awk
 
 Awk is a script language for editing and analyzing text.
 
