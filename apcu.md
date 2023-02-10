@@ -32,7 +32,7 @@ Afterwards php-fpm must be restarted.
 
 ## APCu monitoring
 
-To monitor APCu the apc.php script can be used.
+To monitor APCu the apc.php (https://github.com/krakjoe/apcu/blob/master/apc.php) script can be used.
 
 The script gives important information like:
 
